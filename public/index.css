@@ -1,0 +1,105 @@
+
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+
+#root {
+	position: relative;
+	min-height:100%;
+	padding:64px 0 231px 0;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+/* HTML5 display-role reset for older browsers */
+html,body {
+	height:100%;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color:#5a5e6a;
+}
+
+button {
+	cursor: pointer;
+	border:none;
+	background: none;
+}
+:root {
+	--primary-primary: #226bef;
+	--primary-p-800: #4e88f2;
+	--primary-p-500: #90b4f7;
+	--primary-p-200: #d2e1fc;
+	--primary-p-100: #e8f0fe;
+	--consulting: #ffcd4d;
+	--consulting-10: rgba(255, 201, 77, 0.1);
+	--planning: #00e6ca;
+	--planning-10: rgba(0, 230, 202, 0.1);
+	--design: #ff5f5f;
+	--design-10: rgba(255, 95, 95, 0.1);
+	--development: #3fc5ff;
+	--development-10: rgba(63, 197, 255, 0.1);
+	--mvp: #00c9c9;
+	--mvp-10: rgba(0, 201, 201, 0.1);
+	--product: #00ace9;
+	--product-10: rgba(0, 172, 233, 0.1);
+	--none: rgba(255, 255, 255, 0);
+	--gray-scale-white: #fff;
+	--gray-scale-gray-1: #f9fafc;
+	--gray-scale-gray-2: #eff1f4;
+	--gray-scale-gray-3: #e4e6ea;
+	--gray-scale-gray-5: #bec1c7;
+	--gray-scale-gray-6: #9da0a8;
+	--gray-scale-gray-8: #5a5e6a;
+	--gray-scale-gray-9: #3b3f4a;
+	--gray-scale-black: #000;
+	--icon-black: #0a0a0a;
+	--naver: #21c759;
+	--minssum: #00c9c9;
+	--stauter: #685cff;
+	--system-color-success: #2fb916;
+	--system-color-alert: #ff2f2f;
+}
