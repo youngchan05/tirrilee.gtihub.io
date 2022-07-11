@@ -4,6 +4,9 @@ import { IconArrowRightSm, Logo } from '../../../common/svg'
 import { Link } from 'react-router-dom'
 import useClick from '../../../Hooks/useCurrentTab'
 import ContentBox from './ContentBox';
+import Buttons from '../atoms/Button'
+import Button from '../atoms/Button'
+import Tab from './Tab'
 
 function FeedList() {
     const {currentTab , onClickCurrent} = useClick(0)
@@ -41,11 +44,11 @@ function FeedList() {
   return (
     <ContentBox>
         <Wrapper className='feedWrapper'>
-            <Tabs className='feedTabs'>
-                {
-                    feedTabs.map((i, idx) => <button onClick={()=>onClickCurrent(idx)} className={idx === currentTab ? 'active' :''} type="button">{i}</button>)
-                }
-            </Tabs>
+            <Tab
+                list={feedTabs}
+                onClick={onClickCurrent}
+                currentTab={currentTab}
+            />
             <List className='feedList'>
                 {
                     feedItmes.filter((i) => {
@@ -55,23 +58,25 @@ function FeedList() {
                     }).map((j, idx) => {
                         const { tag, title, desc,link,url} = j;
                         return (
-                            <div key={idx} className="listItem">
-                                <span className='imgBox'>
-                                    {
-                                        url ? <img src={url} alt="" /> : <Logo/>
-                                    }
-                                </span>
-                                <div className="textBox">
-                                    <span>{tag}</span>
-                                    <strong>{title}</strong>
-                                    <p>{desc}</p>
-                                    <Link to={`/feed/${link}`}>More <IconArrowRightSm/> </Link>
+                            <Link to={`/feed/${link}`}>
+                                <div key={idx} className="listItem">
+                                    <span className='imgBox'>
+                                        {
+                                            url ? <img src={url} alt="" /> : <Logo/>
+                                        }
+                                    </span>
+                                    <div className="textBox">
+                                        <span>{tag}</span>
+                                        <strong>{title}</strong>
+                                        <p>{desc}</p>
+                                        <Link to={`/feed/${link}`}>More <IconArrowRightSm/> </Link>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
-                <Link to={''} className='feedLinkBox'>더 보기</Link>
+                <Button size={'xl'} buttonTheme={'line'} className={'feedLinkBox'}>더 보기</Button>
             </List>
         </Wrapper>
     </ContentBox>
@@ -80,27 +85,6 @@ function FeedList() {
 
 const Wrapper = styled.div`
     padding-top:48px;
-
-`
-const Tabs = styled.div`
-    display:flex;
-    justify-content: center;
-    width:100%;
-    margin-bottom:48px;
-    button {
-        padding:12px 20px;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
-        letter-spacing: normal;
-        text-align: center;
-        color: var(--gray-scale-gray-9);
-        border-radius: 8px;
-        &.active {
-            background-color: var(--primary-p-100);
-            color: var(--primary-primary);
-        }
-    }
 
 `
 const List = styled.div`
@@ -175,16 +159,8 @@ const List = styled.div`
     }
     .feedLinkBox {
         display:block;
-        width:348px;
         padding:17px 0;
         margin:48px auto 0 auto;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 20px;
-        text-align: center;
-        color: var(--primary-primary);
-        border: solid 1px var(--primary-primary);
-        border-radius: 8px;
     }
 `
 

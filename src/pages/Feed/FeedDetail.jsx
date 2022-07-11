@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Title from '../../components/UI/atoms/Title'
 import ContentBox from '../../components/UI/molecules/ContentBox'
+import DetailView from '../../components/UI/organisms/DetailView'
 
 function FeedDetail() {
     const [ data, setdata] = useState({
@@ -14,7 +15,7 @@ function FeedDetail() {
         <FeedImg>
         </FeedImg>
         <ContentBox>
-            <div className="feedInfo">
+            <DetailView>
                 <Title text={data.title}/>
                 <dl>
                     <dt>Feed</dt>
@@ -24,7 +25,7 @@ function FeedDetail() {
                     <dt>Date</dt>
                     <dd>{data.date}</dd>
                 </dl>
-            </div>
+            </DetailView>
             <FeedViewBox>
                 <p>티릴리는 2021 서울 디자인 페스티벌에 참여했습니다. 티릴리 MBTI 테스트를 진행해서 사람들이 많이 모였어요. 코로나인데도 불구하고 많은 인원이 부스에 방문해주셨습니다. 티릴리는 2021 서울 디자인 페스티벌에 참여했습니다.</p>
                 <div className="imgBox">
@@ -92,6 +93,9 @@ const FeedImg = styled.div`
 `
 const FeedViewBox = styled.div`
     padding: 48px 0 80px 0;
+    img {
+        width:100%;
+    }
 `
 
 export default FeedDetail

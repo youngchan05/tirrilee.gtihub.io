@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-function ServiceSection({children}) {
+function ServiceSection({children, className}) {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
         {children}
     </Wrapper>
   )
@@ -15,6 +15,9 @@ const Wrapper = styled.div`
         font-weight: bold;
         line-height: 1.5;
         color: #000;
+        + div {
+            margin-top:32px;
+        }
     }
     .subTit{
         margin-top:12px;

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function TextTag({text}) {
+function TextTag({text ,type}) {
   return (
-    <Wrapper>{text}</Wrapper>
+    <Wrapper type={type}>{text}</Wrapper>
   )
 }
 
@@ -15,6 +15,16 @@ const Wrapper = styled.div`
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
-    color: #5a5e6a;
+    ${props => {
+      console.log(props.type)
+      const textTypeColor = {
+        MVP:'var(--mvp);',
+        product:'var(--product);',
+        premium:'var(--primary-primary);',
+      }
+      return {
+        color:props.type ? textTypeColor[props.type] : '#5a5e6a'
+      }
+    }}
 `
 export default TextTag

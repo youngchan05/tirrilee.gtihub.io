@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   .feedWrapper {
     padding-top:0;
   }
-  .feedTabs {
+  .tabs {
     margin-bottom:32px;
     justify-content: flex-start;
   }

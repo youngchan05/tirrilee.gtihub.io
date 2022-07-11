@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { useLocation, useParams} from 'react-router-dom'
 import ServiceTop from '../../components/UI/molecules/ServiceTop';
 import { serviceData } from './data';
+import Button from '../../components/UI/atoms/Button';
 import ServiceSection from '../../components/UI/organisms/ServiceSection';
 import ContentBox from '../../components/UI/molecules/ContentBox';
 import CheckList from '../../components/UI/molecules/CheckList';
 import ProcessStep from '../../components/UI/molecules/ProcessStep';
+import Faq from '../../components/UI/molecules/Faq';
 
 function ServiceDetail() {
     const params = useParams();
@@ -20,6 +22,7 @@ function ServiceDetail() {
       premium,
       master,
       processItem,
+      faq,
     }  = selectedItem ;
   return (
     <Wrapper>
@@ -44,12 +47,18 @@ function ServiceDetail() {
             <p className='subTit'>{process}</p>
             <ProcessStep activeStep={processItem}/>
           </ServiceSection>
+          <ServiceSection>
+            <strong className='tit'>FAQ</strong>
+            <Faq list={faq}/>
+          </ServiceSection>
+          <Button className={'btnNaver'} buttonTheme={'naver'}>네이버 예약하기</Button>
         </ContentBox>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
+  padding-bottom:120px;
   .checkListWrapper {
     display:flex;
     .checkListBox {
@@ -61,6 +70,10 @@ const Wrapper = styled.div`
         width:100%;
       }
     }
+  }
+  .btnNaver {
+    display:block;
+    margin:0 auto;
   }
 `
 export default ServiceDetail

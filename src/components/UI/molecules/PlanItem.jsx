@@ -8,6 +8,7 @@ function PlanItem({currentActive}) {
     const items = [
         {
             icon:<IconMvp/>,
+            type:'mvp',
             title:'MVP 플랜',
             desc:` 빠른 시장검증이 필요하다면?
             검증하고자 하는 핵심 기능만 담아 개발하는 과정`,
@@ -15,6 +16,7 @@ function PlanItem({currentActive}) {
         },
         {
             icon:<IconProduct/>,
+            type:'product',
             title:'Product 플랜',
             desc:`서비스의 최소 개발은?
             핵심기능 + 필수기능을 담아 개발하는 과정`,
@@ -22,6 +24,7 @@ function PlanItem({currentActive}) {
         },
         {
             icon:<IconPreminum/>,
+            type:'premium',
             title:'Premium 플랜',
             desc:`고도화된 개발이 필요하다면?
             서비스에 필요한 모든 기능을 담아 개발하는 과정`,
@@ -32,9 +35,9 @@ function PlanItem({currentActive}) {
     <Wrapper>
         {
             items.map( (i, idx) => {
-                const { icon, title, desc, tag} = i;
+                const { icon, title, desc, tag, type} = i;
                 return (
-                    <Link to={''} key={idx} className={idx === currentActive ? 'active planBox' :'planBox'}>
+                    <Link to={`/service/plan/${type}`} key={idx} className={type === currentActive ? 'active planBox' :'planBox'}>
                         <i className='icon'>{icon}</i>
                         <strong>{title}</strong>
                         <p>{desc}</p>
@@ -76,6 +79,7 @@ const Wrapper = styled.div`
             font-size: 16px;
             line-height: 1.7;
             color: #000;
+            white-space: pre-line;
         }
         .tagList {
             display:flex;
@@ -89,7 +93,12 @@ const Wrapper = styled.div`
         + .planBox {
             margin-left:20px;
         }
-        &:hover {
+        &.active {
+            border: solid 1px #e4e6ea;
+            background-color: #f9fafc;
+            cursor: default;
+        }
+        &:not(.active):hover {
             border: solid 1px var(--primary-p-500);
             transition: esce-in .2s;
         }
