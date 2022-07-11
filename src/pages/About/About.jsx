@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ContentBox from '../../components/UI/molecules/ContentBox';
 import SectionText from '../../components/UI/molecules/SectionText'
 import useClick from '../../Hooks/useCurrentTab'
 
@@ -8,9 +9,9 @@ function About() {
     const tabList = ['Fit','Durable','Comfortable','Efficient'];
     const valueText = [
         {
-            title:'효율적인 개발 기술을 통해 서비스 구현',
-            desc:`같은 기능, 유사한 페이지들을 구조화하여 효율적으로 작업합니다.
-            서비스의 규모를 고려한 데이터베이스 및 서버 구축을 진행합니다.`
+            title:'세상의 필요를 충족시켜주는 서비스',
+            desc:`단순 아이디어를 구체화시키는것을 넘어서
+            현재의 자원과 시장성을 고려하여 최선의 솔루션을 제시합니다.`
         },
         {
             title:'일관된 로직을 통해 구조화된 서비스',
@@ -50,11 +51,43 @@ function About() {
                 }
             </div>
             <div className="tabCont">
-                {/* {
-                    valueText.filter((i, idx) => idx === currentTab )
-                } */}
+                <strong>{valueText[currentTab].title}</strong>
+                <p>{valueText[currentTab].desc}</p>
             </div>
         </OurValue>
+        <ExperiencesBox>
+            <img src="./images/img_Experiences.png" alt="" />
+            <SectionText>
+                <p className='sub'>Why Tirrilee</p>
+                <strong className='title'>Various Experiences</strong>
+            </SectionText>
+            <p>
+                2018년 창립 이후, 다양한 프로젝트를 수행하면서 수 많은 서비스들의 성공과 실패를 함께 경험했습니다.<br/>
+                이 과정에서 단순 ‘개발업무’ 만을 수행하는 것으로는 성공하는 서비스를 만들기 어렵다는 것을 직접 시장에서 배웠습니다.
+            </p>
+            <p>
+                초기 사업 단계부터 IT 컨설팅, 기획, 디자인 그리고 개발 이후 유지보수단계까지 전 과정을 함께 진행합니다.<br/>
+                고객의 상황에 맞추어 최적의 개발 솔루션 및 방향성을 제시합니다.
+            </p>
+        </ExperiencesBox>
+        <Partners>
+            <SectionText>
+                <ContentBox>
+                    <p className='sub'>Why Tirrilee</p>
+                    <strong className='title'>Partners</strong>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </ContentBox>
+            </SectionText>
+        </Partners> 
     </Wrapper>
   )
 }
@@ -128,6 +161,70 @@ const OurValue = styled.div`
             }
         }
     }
+    .tabCont {
+        margin-top:80px;
+        text-align: center;
+        strong{
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+            color: var(--primary-primary);
+        }
+        p{
+            margin-top:36px;
+            font-size: 20px;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--gray-scale-gray-9);
+            white-space: pre-line;
+        }
+    }
+`
+const ExperiencesBox = styled.div`
+    text-align:center;
+    padding:120px 0;
+    background-color: var(--gray-scale-gray-1);
+    img {
+        width:258px;
+        margin-bottom:28px;
+    }
+    p {
+        font-size: 20px;
+        line-height: 1.7;
+        color: var(--gray-scale-gray-9);
+        + p {
+            position:relative;
+            margin-top:28px;
+            padding-top:28px;
+            &::after {
+                display:block;
+                position:absolute;
+                left:50%;
+                top:0;
+                width:40px;
+                height:1px;
+                transform:translateX(-50%);
+                background-color: var(--gray-scale-gray-9);
+                content:"";
+            }
+        }
+    }
 `
 
+const Partners = styled.div`
+    padding:160px 0;
+    ul {
+        display:flex;
+        flex-wrap:wrap;
+        margin:-20px 0 0 -20px;
+        li {
+            margin:20px 0 0 20px;
+            width:calc(25% - 20px);
+            height:80px;
+            background-color: var(--gray-scale-gray-2);
+        }
+    }
+`
 export default About

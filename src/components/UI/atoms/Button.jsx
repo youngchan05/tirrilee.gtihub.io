@@ -21,7 +21,18 @@ const Wrapper = styled.button`
     }
   }
 }
-  &:hover {
+  &:disabled {
+    ${props => {
+      const theme = props.buttonTheme ? props.theme.button.theme[props.buttonTheme] : props.theme.button.theme['default']
+      if(theme.disabled){
+        return {
+          background:theme.disabled.backgroundColor,
+          color:theme.disabled.color,
+        }
+      }
+    }}
+  }
+  &:not(:disabled):hover {
     ${props => {
       const theme = props.buttonTheme ? props.theme.button.theme[props.buttonTheme] : props.theme.button.theme['default']
       if(theme.hover){

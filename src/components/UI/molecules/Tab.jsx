@@ -35,6 +35,9 @@ const Tabs = styled.div`
             background-color: var(--primary-p-100);
             color: var(--primary-primary);
         }
+        + button {
+            margin-left:20px;
+        }
     }
 
 `

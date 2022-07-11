@@ -19,6 +19,10 @@ const size = {
         hover:{
           backgroundColor:'var(--primary-p-800)'
         },
+        disabled: {
+          color:'var(--gray-scale-gray-5)',
+          backgroundColor:'var(--gray-scale-gray-2)'
+        }
       },
       sub:{
         color:'var(--primary-primary);',
