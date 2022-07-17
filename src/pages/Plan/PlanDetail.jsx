@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button from '../../components/UI/atoms/Button';
 import ContentBox from '../../components/UI/molecules/ContentBox';
 import Faq from '../../components/UI/molecules/Faq';
@@ -78,6 +78,14 @@ const Wrapper = styled.div`
     display:block;
     margin:0 auto 120px auto;
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${tablet} {
+            
+        }
+    `
+  }}
 `
 
 export default PlanDetail

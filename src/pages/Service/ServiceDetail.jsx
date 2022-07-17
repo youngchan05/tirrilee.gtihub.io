@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useLocation, useParams} from 'react-router-dom'
 import ServiceTop from '../../components/UI/molecules/ServiceTop';
 import { serviceData } from './data';
@@ -35,11 +35,13 @@ function ServiceDetail() {
           <ServiceSection>
             <strong className='tit'>서비스 소개</strong>
             <p className='subTit'>{introduction}</p>
-            <div className="checkListWrapper">
-              <CheckList data={basic}/>
-              <CheckList data={pro}/>
-              {premium &&  <CheckList data={premium}/>}
-              {master &&  <CheckList data={master}/>}
+            <div className='scrollBox'>
+              <div className={premium ? 'isScroll checkListWrapper' : 'checkListWrapper'}>
+                <CheckList data={basic}/>
+                <CheckList data={pro}/>
+                {premium &&  <CheckList data={premium}/>}
+                {master &&  <CheckList data={master}/>}
+              </div>
             </div>
           </ServiceSection>
           <ServiceSection>
@@ -75,5 +77,18 @@ const Wrapper = styled.div`
     display:block;
     margin:0 auto;
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${tablet} {
+            .scrollBox {
+              overflow: auto;
+              .isScroll {
+                width:200%;
+              }
+            }
+        }
+    `
+}}
 `
 export default ServiceDetail

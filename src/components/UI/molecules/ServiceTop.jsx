@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import ContentBox from '../../UI/molecules/ContentBox';
 function ServiceTop({data}) {
   const {title,sub,icon, color,bgColor} = data;
@@ -44,5 +44,33 @@ const Wrapper = styled.div`
     background-color:${proos.bgColor};
     color:${proos.textColor};
   `}
+    ${({theme}) => {
+      const { mobile,tablet} = theme;
+      return css`
+          @media screen and ${tablet} {
+            .contentBox {
+              position:relative;
+              padding:20px 30px;
+              .serviceIcon {
+                right:30px;
+                top:28px;
+                svg {
+                  width:160px;
+                  height:100%;
+                }
+              }
+              .subTit {
+                margin-bottom:4px;
+                font-size: 16px;
+                line-height: 26px;
+              }
+              .tit {
+                font-size: 32px;
+                line-height: 48px;
+              }
+            }
+          }
+      `
+  }}
 `
 export default ServiceTop

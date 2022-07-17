@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import ContentBox from '../../components/UI/molecules/ContentBox';
 import SectionText from '../../components/UI/molecules/SectionText'
 import useClick from '../../Hooks/useCurrentTab'
@@ -38,7 +38,8 @@ function About() {
             IT 컨설팅부터 시작하여 개발 단계까지 통합 개발 에이전시 그룹입니다.</p>
         </AboutTitle>
         <div className="bnnaerImg">
-            <img src="./images/img_aboutBanner.png" alt="" />
+            <img src="./images/img_aboutBanner.png" alt=""  className='isPc'/>
+            <img src="./images/img_aboutBannerT.png" alt="" className='isTablet'/>
         </div>
         <OurValue>
             <SectionText>
@@ -103,6 +104,18 @@ const Wrapper = styled.div`
             margin-bottom:60px;   
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                .sectionTitle {
+                    .title {
+                        margin-bottom:32px;   
+                    }
+                }
+            }
+        `
+    }}
 `
 
 const AboutTitle = styled.div`
@@ -126,6 +139,14 @@ const AboutTitle = styled.div`
         text-align: center;
         color: var(--gray-scale-gray-9);
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:120px 0 124px 0;
+            }
+        `
+    }}
 `
 const OurValue = styled.div`
     padding:160px 0;
@@ -142,7 +163,7 @@ const OurValue = styled.div`
             font-size: 24px;
             font-weight: bold;
             color: var(--primary-primary);
-            border-radius: 137px;
+            border-radius: 100%;
             background-color: var(--primary-p-100);
             span {
                 position:absolute;
@@ -181,6 +202,36 @@ const OurValue = styled.div`
             white-space: pre-line;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:100px 30px;
+                .tabBox {
+                    .tab {
+                        padding-top: 21.4%;
+                        font-size: 20px;
+                        border-radius: 100%;
+                        + .tab {
+                            margin-left:16px;
+                        }
+                    }
+                }
+                .tabCont {
+                    margin-top:48px;
+                    strong{
+                        font-size: 28px;
+                        line-height: 42px;
+                    }
+                    p{
+                        margin-top:20px;
+                        font-size: 18px;
+                        line-height: 30px;
+                    }
+                }
+            }
+        `
+    }}
 `
 const ExperiencesBox = styled.div`
     text-align:center;
@@ -211,6 +262,18 @@ const ExperiencesBox = styled.div`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:80px 30px;
+                img {
+                    width:178px;
+                    margin-bottom:40px;
+                }
+            }
+        `
+    }}
 `
 
 const Partners = styled.div`
@@ -226,5 +289,21 @@ const Partners = styled.div`
             background-color: var(--gray-scale-gray-2);
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:100px 0;
+                ul {
+                    margin:-16px 0 0 -16px;
+                    li {
+                        margin:16px 0 0 16px;
+                        width:calc(25% - 16px);
+                        height:52px;
+                    }
+                }
+            }
+        `
+    }}
 `
 export default About

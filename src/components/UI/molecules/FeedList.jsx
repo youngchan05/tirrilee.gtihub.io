@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconArrowRightSm, Logo } from '../../../common/svg'
 import { Link } from 'react-router-dom'
 import useClick from '../../../Hooks/useCurrentTab'
@@ -42,52 +42,67 @@ function FeedList() {
         }
     ]
   return (
-    <ContentBox>
-        <Wrapper className='feedWrapper'>
-            <Tab
-                list={feedTabs}
-                onClick={onClickCurrent}
-                currentTab={currentTab}
-            />
-            <List className='feedList'>
-                {
-                    feedItmes.filter((i) => {
-                        return feedTabs[currentTab] === '전체보기' ? 
-                        i :
-                        feedTabs[currentTab] === i.tag
-                    }).map((j, idx) => {
-                        const { tag, title, desc,link,url} = j;
-                        return (
-                            <Link to={`/feed/${link}`}>
-                                <div key={idx} className="listItem">
-                                    <span className='imgBox'>
-                                        {
-                                            url ? <img src={url} alt="" /> : <Logo/>
-                                        }
-                                    </span>
-                                    <div className="textBox">
-                                        <span>{tag}</span>
-                                        <strong>{title}</strong>
-                                        <p>{desc}</p>
-                                        <Link to={`/feed/${link}`}>More <IconArrowRightSm/> </Link>
-                                    </div>
+    <Wrapper className='feedWrapper'>
+        <Tab
+            list={feedTabs}
+            onClick={onClickCurrent}
+            currentTab={currentTab}
+        />
+        <List className='feedList'>
+            {
+                feedItmes.filter((i) => {
+                    return feedTabs[currentTab] === '전체보기' ? 
+                    i :
+                    feedTabs[currentTab] === i.tag
+                }).map((j, idx) => {
+                    const { tag, title, desc,link,url} = j;
+                    return (
+                        <Link className='linkBox' to={`/feed/${link}`}>
+                            <div key={idx} className="listItem">
+                                <span className='imgBox'>
+                                    {
+                                        url ? <img src={url} alt="" /> : <Logo/>
+                                    }
+                                </span>
+                                <div className="textBox">
+                                    <span>{tag}</span>
+                                    <strong>{title}</strong>
+                                    <p>{desc}</p>
+                                    <Link to={`/feed/${link}`}>More <IconArrowRightSm/> </Link>
                                 </div>
-                            </Link>
-                        )
-                    })
-                }
-                <Button size={'xl'} buttonTheme={'line'} className={'feedLinkBox'}>더 보기</Button>
-            </List>
-        </Wrapper>
-    </ContentBox>
+                            </div>
+                        </Link>
+                    )
+                })
+            }
+            <Button size={'xl'} buttonTheme={'line'} className={'feedLinkBox'}>더 보기</Button>
+        </List>
+    </Wrapper>
+
   )
 }
 
 const Wrapper = styled.div`
     padding-top:48px;
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding-top:12px;
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 
 `
 const List = styled.div`
+    .linkBox {
+        display:block;
+        + .linkBox {
+            margin-top:24px;
+        }
+    }
     .listItem {
         display:flex;
         padding: 20px;
@@ -162,6 +177,44 @@ const List = styled.div`
         padding:17px 0;
         margin:48px auto 0 auto;
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                .linkBox {
+                    + .linkBox {
+                        margin-top:20px;
+                    }
+                }
+                .textBox {
+                    display: flex;
+                    flex-direction: column;
+                    padding-top:6px;
+                    margin-left:32px;
+                    strong{
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;  
+                    }
+                    p{
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;  
+                    }
+                    a {
+                        
+                        svg {
+                            margin-left:4px;
+                        }
+                    }
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
+}
 `
 
 export default FeedList

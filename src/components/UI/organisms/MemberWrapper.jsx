@@ -10,6 +10,6 @@ function MemberWrapper({children}) {
 const Wrapper = styled.div`
     display:flex;
     flex-wrap:wrap;
-    margin:-20px 0 0 -20px;
+    margin:-16px 0 0 -16px;
 `
 export default MemberWrapper

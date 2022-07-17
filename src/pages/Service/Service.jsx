@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useNavigate} from 'react-router-dom'
 import { IconServieTab01,IconServieTab02,IconServieTab03,IconServieTab04 } from '../../common/svg'
 import Title from '../../components/UI/atoms/Title'
@@ -67,19 +67,39 @@ function Service() {
 
 const Wrapper = styled.div`
     padding:120px 0;
-    margi-bottom:16px;
     .serviceSubTit {
         margin-bottom:32px;
         font-size: 20px;
         line-height: 1.7;
         color: var(--gray-scale-black);
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:80px 0 100px 0;
+                .serviceSubTit {
+                    margin:12px 0 32px 0;
+                    font-size: 18px;
+                    line-height: 30px;
+                }
+            }
+        `
+    }}
 `
 
 const ServiceItem = styled.div`
     display:flex;
     flex-wrap:wrap;
     margin:-20px 0 160px -20px;
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                margin:-16px 0 120px -16px;
+            }
+        `
+    }}
 `
 const Item = styled.div`
     display: flex;
@@ -120,5 +140,18 @@ const Item = styled.div`
     &:hover {
         border: solid 1px var(--primary-p-500);
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                width: calc(50% - 16px);
+                padding: 28px;
+                margin:16px 0 0 16px;
+                border-radius: 8px;
+                border: solid 1px var(--gray-scale-gray-3);
+                background-color: var(--gray-scale-white);
+            }
+        `
+    }}
 `
 export default Service

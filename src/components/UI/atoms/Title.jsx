@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function Title({text}) {
   return (
@@ -15,5 +15,13 @@ const Wrapper = styled.div`
     letter-spacing: normal;
     text-align: left;
     color: var(--gray-scale-black);
+    ${({theme}) => {
+      const { mobile,tablet} = theme;
+      return css`
+          @media screen and ${tablet} {
+            font-size: 32px;
+            line-height: 48px;          }
+      `
+  }}
 `
 export default Title

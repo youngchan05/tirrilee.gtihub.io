@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import BrandItems from '../../components/UI/molecules/BrandItems'
+import ContentBox from '../../components/UI/molecules/ContentBox'
 import FeedList from '../../components/UI/molecules/FeedList'
 import HomeBanner from '../../components/UI/molecules/HomeBanner'
 import HomeCards from '../../components/UI/molecules/HomeCards'
@@ -16,7 +17,7 @@ function Home() {
       </div>
       <div className="TextBanner">
         <SectionText TextColor={'var(--primary-primary);'}>
-          <strong className='title'>Lanch Your Idea to Service</strong>
+          <strong className='title'>Lanch<br className='isTablet'/> Your Idea to Service</strong>
           <p className='desc'>
             티릴리와 함께 아이디어를 서비스로 만들어보세요.<br/>
             IT 컨설팅부터 시작하여 개발 단계까지 통합 개발 에이전시 그룹입니다.
@@ -46,7 +47,9 @@ function Home() {
           <p className='sub'>Tirrilee News</p>
           <strong className='title'>Tirrilee Feed</strong>
         </SectionText>
-        <FeedList/>
+        <ContentBox>
+          <FeedList/>
+        </ContentBox>
       </div>
     </Wrapper>
   )
@@ -75,5 +78,46 @@ const Wrapper = styled.div`
     padding:120px 0;
     background-color: var(--gray-scale-gray-1);
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+      @media screen and ${tablet} {
+        ${tabletStyle}
+      }
+      @media screen and ${mobile} {
+        ${mobileStyle}
+      }
+    `
+  }}
+`
+
+const tabletStyle =  css`
+  .cradSection {
+    padding-bottom:100px;
+  }
+  .TextBanner {
+    padding:48px 0;
+  }
+  .branSection {
+    padding:100px 0;
+    .sectionTitle {
+      margin-bottom:32px;
+    }
+  }
+  .serviceSection {
+    padding-bottom:100px;
+    .sectionTitle {
+      margin-bottom:16px;
+    }
+  }
+  .feedSection {
+    padding:80px 0;
+    background-color: var(--gray-scale-gray-1);
+  }
+  
+`
+
+const mobileStyle =  css`
+
 `
 export default Home

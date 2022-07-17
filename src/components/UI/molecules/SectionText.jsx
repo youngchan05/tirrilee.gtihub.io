@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function SectionText({children, TextColor}) {
   return (
@@ -32,5 +32,27 @@ const Wrapper = styled.div`
     line-height:34px;
     color:${props => props.TextColor ? props.TextColor : 'var(--gray-scale-black)'};
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+      @media screen and ${tablet} {
+        .sub {
+          display:inline-block;
+          font-size: 20px;
+          line-height:34px;
+        }
+        .title{
+          font-size: 32px;
+          line-height:48px;
+        }
+        .desc {
+          font-size: 16px;
+          line-height:27px;
+        }
+      }
+      @media screen and ${mobile} {
+      }
+    `
+  }}
 `
 export default SectionText

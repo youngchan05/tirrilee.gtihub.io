@@ -1,7 +1,7 @@
 
 const size = {
-    mobile: '600px',
-    tablet: '900px',
+    mobile: '415px',
+    tablet: '1020px',
   }
   const button = {
     size:{

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { IconServieTab01, IconServieTab02, IconServieTab03, IconServieTab04 } from '../../../common/svg'
 import useClick from '../../../Hooks/useCurrentTab'
 import ContentBox from './ContentBox'
+import Tab from './Tab'
 function ServieceTab() {
   const tabs = ['IT 컨설팅','서비스 기획','UX / UI 디자인','프로젝트 개발',]
   const tabItems = [
@@ -41,15 +42,11 @@ function ServieceTab() {
   return (
     <Wrapper>
       <ContentBox>
-          <Tabs>
-            {
-              tabs.map((i, idx) => {
-                return (
-                  <button onClick={()=> onClickCurrent(idx)} className={idx === currentTab ? 'active' :''} key={idx} type='button'>{i}</button>
-                )
-              })
-            }
-          </Tabs>
+        <Tab  
+          list={tabs}  
+          onClick={onClickCurrent}
+          currentTab={currentTab}
+        />
           <TabItem className='tabItem'>
             {
               tabItems.filter((_,idx) => idx === currentTab).map((i ,index) => {
@@ -71,28 +68,13 @@ function ServieceTab() {
 }
 
 const Wrapper = styled.div`
-`
-const Tabs = styled.div`
-  display:flex;
-  width:100%;
-  button {
-    width:25%;
-    padding:13px 0;
-    font-size: 20px;
-    line-height:34px;
-    text-align: center;
-    color: var(--gray-scale-gray-5);
-    border-radius: 8px;
-    transition: all ease-in .2s;
-    + button {
-      margin-left:20px;
-    }
-    &:hover {
-      color: var(--primary-primary);
-    }
-    &.active {
-      color: var(--primary-primary);
-      background-color: var(--primary-p-100);
+.tabs {
+    width:100%;
+    button {
+      width:25%;
+      padding:13px 0;
+      font-size: 20px;
+      line-height:34px;
     }
   }
 `
@@ -136,6 +118,38 @@ const TabItem = styled.div`
     text-align: center;
     color: var(--primary-primary);
   }
-  
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+      @media screen and ${tablet} {
+        padding:0 140px 0 100px;
+        margin-top:32px;
+        .tabTit {
+          margin-bottom:12px;
+          font-size: 20px;
+          line-height:30px;
+        }
+        .tabDesc {
+          font-size: 16px;
+          line-height:27px;
+        }
+        .detailLink {
+          display: inline-block;
+          top:30px;          
+          width:120px;
+          font-size: 14px;
+        }
+        i {
+          
+          svg {
+            width:80px;
+            height:80px;
+          }
+        }
+      }
+      @media screen and ${mobile} {
+      }
+    `
+  }}
 `
 export default ServieceTab

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import TextCheckList from '../atoms/TextCheckList';
 
 function CheckList({data}) {
@@ -60,5 +60,13 @@ const Wrapper = styled.div`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+
+            }
+        `
+    }}
 `
 export default CheckList

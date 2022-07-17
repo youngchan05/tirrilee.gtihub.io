@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function HomeBanner({img, bgColor}) {
   return (
@@ -12,7 +12,18 @@ function HomeBanner({img, bgColor}) {
 }
 
 const Wrapper = styled.div`
-    background-color:${props => props.bgColor ? props.bgColor : '#fff'}
+    background-color:${props => props.bgColor ? props.bgColor : '#fff'};
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding: 0 30px;
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
+    
 `
 
 const Banner = styled.div`

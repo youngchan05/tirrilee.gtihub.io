@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Title from '../../components/UI/atoms/Title'
 import ContentBox from '../../components/UI/molecules/ContentBox'
 import FeedList from '../../components/UI/molecules/FeedList'
@@ -24,8 +24,17 @@ const Wrapper = styled.div`
     padding-top:0;
   }
   .tabs {
-    margin-bottom:32px;
     justify-content: flex-start;
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${tablet} {
+          padding:80px 0 120px 0;
+        }
+        @media screen and ${mobile} {
+        }
+    `
+  }}
 `
 export default Feed

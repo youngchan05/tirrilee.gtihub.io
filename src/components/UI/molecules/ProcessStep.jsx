@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function ProcessStep({activeStep}) {
     const steps = ['개발 방향성 설정','프로젝트 규모 산정','서비스 정책 논의', '상세기획','UX/UI 디자인', '개발 가이드 전달', '프로젝트 개발', '배포/관리']
@@ -62,6 +62,22 @@ const Wrapper = styled.div`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                ul {
+                    flex-wrap:wrap;
+                    margin:-16px 0 0 -16px;
+                    li {
+                        flex: auto;
+                        width:calc(25% - 16px);
+                        margin:16px 0 0 16px;
+                    }
+                }
+            }
+        `
+    }}
 `
 
 export default ProcessStep

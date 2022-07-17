@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Title from '../../components/UI/atoms/Title'
 import ContentBox from '../../components/UI/molecules/ContentBox'
 import Tab from '../../components/UI/molecules/Tab'
@@ -60,7 +60,6 @@ function Work() {
             url:'',
         }
     ]
-    console.log(currentTab ,'currentTab')
   return (
     <Wrapper>
         <ContentBox>
@@ -90,9 +89,22 @@ function Work() {
 const Wrapper = styled.div`
     padding:120px 0;
     .tabs {
-        margin-top:20px;
         justify-content: flex-start;
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:80px 0 120px 0;
+                .tabs {
+                    margin-top:20px;
+                    justify-content: flex-start;
+                }
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 `
 
 export default Work

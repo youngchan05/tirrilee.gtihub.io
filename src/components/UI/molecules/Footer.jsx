@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { IconBehance, IconInstagram, IconNotion, IconTistory, IconYoutube } from '../../../common/svg'
 
@@ -109,5 +109,13 @@ const Wrapper = styled.div`
   width:100%;
   padding:40px 0;
   border-top:1px solid var(--gray-scale-gray-3);
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${tablet} {
+          padding:40px 30px;
+        }
+    `
+}}
 `
 export default Footer

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconMvp, IconPreminum, IconProduct } from '../../../common/svg'
 import TextTag from '../atoms/TextTag'
 
@@ -103,6 +103,38 @@ const Wrapper = styled.div`
             transition: esce-in .2s;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                flex-wrap:wrap;
+                .planBox {
+                    flex: 100%;
+                    .tagList {
+                        display:flex;
+                        li {
+                            + li {
+                                margin-left: 6px;
+                            }
+                        }
+            
+                    }
+                    + .planBox {
+                        margin:16px 0 0 0;
+                    }
+                    &.active {
+                        border: solid 1px #e4e6ea;
+                        background-color: #f9fafc;
+                        cursor: default;
+                    }
+                    &:not(.active):hover {
+                        border: solid 1px var(--primary-p-500);
+                        transition: esce-in .2s;
+                    }
+                }
+            }
+        `
+    }}
 `
 
 export default PlanItem

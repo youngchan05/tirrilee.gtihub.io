@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link} from 'react-router-dom'
 function Map() {
   return (
@@ -76,5 +76,23 @@ const Wrapper = styled.div`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                .linkBox {
+                    flex-wrap:wrap;
+                    a {
+                        width:100%;
+                        + a {
+                            margin:20px 0 0 0;
+                        }
+                    }
+                }
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 `
 export default Map

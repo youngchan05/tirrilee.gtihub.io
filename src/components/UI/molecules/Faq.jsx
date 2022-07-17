@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconArrow } from '../../../common/svg';
 
 function Faq({list}) {
@@ -77,5 +77,13 @@ const Wrapper = styled.div`
             max-height:100vh;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+
+            }
+        `
+    }}
 `
 export default Faq

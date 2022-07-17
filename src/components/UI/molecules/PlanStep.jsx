@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {  IconServieTab01, IconServieTab02, IconServieTab03, IconServieTab04 } from '../../../common/svg'
 import TextTag from '../atoms/TextTag'
 
@@ -53,6 +53,14 @@ function PlanStep({items}) {
 
 const Wrapper = styled.div`
     display:flex;
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                overflow: auto;
+            }
+        `
+    }}
 `
 const Item = styled.div`
     flex:1;
@@ -101,5 +109,13 @@ const Item = styled.div`
     + .step {
         margin-left:20px;
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                flex: 0 0 274px;
+            }
+        `
+    }}
 `
 export default PlanStep

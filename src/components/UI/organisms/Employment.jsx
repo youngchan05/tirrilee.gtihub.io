@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import useClick from '../../../Hooks/useCurrentTab';
 import { Link} from 'react-router-dom'
 import { employmentsData } from '../../../pages/Team/data';
@@ -90,5 +90,30 @@ const Wrapper = styled.div`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                padding:80px 0 ;
+                .tabCont {
+                    display:block;
+                    button {
+                        display: block;
+                        margin:60px auto 0 auto;
+                    }
+                    strong {
+                        display:inline-block;
+                        flex:1;
+                        margin-bottom:28px;
+                        margin-right:0;
+                        font-size: 32px;
+                        line-height: 48px;
+                    }
+                }
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 `
 export default Employment

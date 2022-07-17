@@ -47,7 +47,7 @@ const Item = styled.div`
   .brandText {
     span {
       display:inline-block;
-      marin-bottom:4px;
+      margin-bottom:4px;
       font-size: 16px;
       line-height:26px;
       color:var(--gray-scale-gray-8);

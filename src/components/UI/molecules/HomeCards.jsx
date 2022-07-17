@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconArrowRgiht, IconPlan, IconSlash, IconUsers } from '../../../common/svg'
 import ContentBox from './ContentBox';
 import { Link } from 'react-router-dom';
@@ -86,5 +86,27 @@ const Wrapper = styled.ul`
         
     }
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${tablet} {
+          display:block;
+          margin-top:-28px;
+          li {
+            width:100%;
+            padding:26px;
+            .topSpot {
+              margin-bottom:12px;
+            }
+            + li {
+              margin-top:20px;
+              margin-left:0;
+            }
+          }
+        }
+        @media screen and ${mobile} {
+        }
+    `
+}}
 `
 export default HomeCards

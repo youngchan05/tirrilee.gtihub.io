@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Title from '../../components/UI/atoms/Title'
 import ContentBox from '../../components/UI/molecules/ContentBox'
 import Map from '../../components/UI/molecules/Map'
@@ -19,5 +19,18 @@ const Wrapper = styled.div`
     .contentTit {
         margin-bottom:32px;
     }
+    ${({theme}) => {
+      const { mobile,tablet} = theme;
+      return css`
+          @media screen and ${tablet} {
+            padding:80px 0 120px 0;
+            .contentTit {
+              margin-bottom:20px;
+            }
+          }
+          @media screen and ${mobile} {
+          }
+      `
+    }}
 `
 export default Contact

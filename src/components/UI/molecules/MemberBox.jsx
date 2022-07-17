@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function MemberBox({member}) {
     const { position, name, eng, mbti, profile} = member;
@@ -73,6 +73,18 @@ const Wrapper = styled.div`
         margin-left: auto;
         border-radius:100px;
         background: #eee;
-    }   
+    }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                align-items: center;
+                width:calc(50% - 16px);
+                margin:16px 0 0 16px;
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 `
 export default MemberBox

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function Tab({list, onClick, currentTab}) {
   return (
@@ -39,6 +39,19 @@ const Tabs = styled.div`
             margin-left:20px;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                margin-bottom:32px;
+                button {
+                    + button {
+                        margin-left:16px;
+                    }
+                }
+            }
+        `
+    }}
 
 `
 export default Tab

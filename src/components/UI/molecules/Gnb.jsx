@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useLocation } from 'react-router-dom'
 function Gnb() {
     const locatoin  = useLocation()
@@ -39,5 +39,13 @@ const Wrapper =  styled.ul`
             }
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+            display:none;
+            }
+        `
+    }}
 `
 export default Gnb

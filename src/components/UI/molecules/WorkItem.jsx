@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import TextTag from '../atoms/TextTag';
 
 function WorkItem({item}) {
@@ -84,5 +84,16 @@ const Wrapper = styled.div`
             margin-left:8px;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                width:calc(50% - 16px);
+                margin:16px 0 0 16px;
+            }
+            @media screen and ${mobile} {
+            }
+        `
+    }}
 `
 export default WorkItem

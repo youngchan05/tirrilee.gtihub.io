@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function ServiceSection({children, className}) {
   return (
@@ -31,5 +31,13 @@ const Wrapper = styled.div`
             margin-top:32px;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet} = theme;
+        return css`
+            @media screen and ${tablet} {
+                
+            }
+        `
+    }}
 `
 export default ServiceSection
