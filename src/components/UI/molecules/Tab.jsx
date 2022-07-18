@@ -14,8 +14,7 @@ function Tab({list, onClick, currentTab}) {
 }
 
 const Wrapper = styled.div`
-
-
+    overflow:auto;
 `
 const Tabs = styled.div`
     display:flex;
@@ -48,6 +47,16 @@ const Tabs = styled.div`
                     + button {
                         margin-left:16px;
                     }
+                }
+            }
+            @media screen and ${mobile} {
+                justify-content: flex-start;
+                .hideMo {
+                    display:none;
+                }
+                button {
+                    width:auto;
+                    flex:0 0 auto;
                 }
             }
         `

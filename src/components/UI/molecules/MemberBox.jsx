@@ -83,6 +83,31 @@ const Wrapper = styled.div`
                 margin:16px 0 0 16px;
             }
             @media screen and ${mobile} {
+                position: relative;
+                padding:92px 20px 20px 20px;
+                .profile {
+                    position:absolute;
+                    left:50%;
+                    top:20px;
+                    transform: translateX(-50%);
+                }
+                .textBox {
+                    width: 100%;
+                    text-align:center;
+                    .nameBox {
+                        flex-direction: column;
+                        strong{
+                            font-size: 20px;
+                            line-height: 30px;
+                        }
+                        span{
+                            margin:4px 0 0 0;
+                        }
+                    }
+                    .mbti {
+                        display:none;
+                    }
+                }
             }
         `
     }}

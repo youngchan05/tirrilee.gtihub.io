@@ -9,24 +9,32 @@ function About() {
     const tabList = ['Fit','Durable','Comfortable','Efficient'];
     const valueText = [
         {
-            title:'세상의 필요를 충족시켜주는 서비스',
-            desc:`단순 아이디어를 구체화시키는것을 넘어서
-            현재의 자원과 시장성을 고려하여 최선의 솔루션을 제시합니다.`
+            title:<>세상의 필요를<br className='isMobile'/> 충족시켜주는 서비스</>,
+            desc:<>
+                단순 아이디어를 구체화시키는것을 넘어서<br/>
+                현재의 자원과 시장성을 고려하여<br className='isMobile'/> 최선의 솔루션을 제시합니다.
+            </>
         },
         {
-            title:'일관된 로직을 통해 구조화된 서비스',
-            desc:`간결함을 추구하며 복잡한 설계를 지양합니다.
-            단순하고 심플한 로직을 만들고 연결하여 구조화가 쉽게 될 수 있도록 기획합니다.`
+            title:<>일관된 로직을 통해<br className='isMobile'/> 구조화된 서비스</>,
+            desc:<>
+                간결함을 추구하며 복잡한 설계를 지양합니다.<br/>
+                단순하고 심플한 로직을 만들고 연결하여<br className='isMobile'/> 구조화가 쉽게 될 수 있도록 기획합니다.
+            </>
         },
         {
-            title:'유저의 편의를 최우선으로 고려한 서비스',
-            desc:`유저가 쉬운 사용성을 느낄 수 있도록 편안함을 추구합니다.
-            서비스의 목적을 고려하여 유저친화적으로 UX/UI 디자인을 진행합니다.`
+            title:<>유저의 편의를<br className='isMobile'/> 최우선으로 고려한 서비스</>,
+            desc:<>
+                유저가 쉬운 사용성을 느낄 수 있도록<br className='isMobile'/>  편안함을 추구합니다.<br className='hideMobile'/>
+                서비스의 목적을 고려하여<br className='isMobile'/>  유저친화적으로 UX/UI 디자인을 진행합니다.
+            </>
         },
         {
-            title:'효율적인 개발 기술을 통해 서비스 구현',
-            desc:`같은 기능, 유사한 페이지들을 구조화하여 효율적으로 작업합니다.
-            서비스의 규모를 고려한 데이터베이스 및 서버 구축을 진행합니다.`
+            title:<>효율적인 개발 기술을 통해<br className='isMobile'/> 서비스 구현</>,
+            desc:<>
+                같은 기능, 유사한 페이지들을 구조화하여<br className='isMobile'/> 효율적으로 작업합니다.<br className='hideMobile'/>
+                서비스의 규모를 고려한<br className='isMobile'/> 데이터베이스 및 서버 구축을 진행합니다.
+            </>
         },
     ]
     
@@ -35,7 +43,7 @@ function About() {
         <AboutTitle>
             <strong>About<span>Tirrilee</span></strong>
             <p>티릴리와 함께 아이디어를 서비스로 만들어보세요.<br/>
-            IT 컨설팅부터 시작하여 개발 단계까지 통합 개발 에이전시 그룹입니다.</p>
+            IT 컨설팅부터 시작하여 개발 단계까지<br className='isMobile'/> 통합 개발 에이전시 그룹입니다.</p>
         </AboutTitle>
         <div className="bnnaerImg">
             <img src="./images/img_aboutBanner.png" alt=""  className='isPc'/>
@@ -114,6 +122,11 @@ const Wrapper = styled.div`
                     }
                 }
             }
+            @media screen and ${tablet} {
+                .hideMobile {
+                    display:none;
+                }
+            }
         `
     }}
 `
@@ -142,8 +155,20 @@ const AboutTitle = styled.div`
     ${({theme}) => {
         const { mobile,tablet} = theme;
         return css`
-            @media screen and ${tablet} {
+            @media screen and ${mobile} {
                 padding:120px 0 124px 0;
+            }
+            @media screen and ${tablet} {
+                padding:80px 0;
+                font-size: 32px;
+                line-height: 48px;
+                strong {
+                    font-weight: inherit;
+                }
+                p {
+                    font-size: 18px;
+                    line-height: 30px;
+                }
             }
         `
     }}
@@ -230,6 +255,29 @@ const OurValue = styled.div`
                     }
                 }
             }
+            @media screen and ${mobile} {
+                padding:80px 20px;
+                .tabBox {
+                    flex-wrap:wrap;
+                    margin:-16px 0 0 -12px;
+                    .tab {
+                        padding-top: 47%;
+                        font-size: 20px;
+                        width:calc(50% - 12px);
+                        margin:16px 0 0 12px;
+                        + .tab {
+                            margin-left:12px;
+                        }
+                    }
+                }
+                .tabCont {
+                    margin-top:40px;
+                    strong{
+                        font-size: 24px;
+                        line-height: 40px;
+                    }
+                }
+            }
         `
     }}
 `
@@ -272,6 +320,20 @@ const ExperiencesBox = styled.div`
                     margin-bottom:40px;
                 }
             }
+            @media screen and ${mobile} {
+                padding:60px 20px;
+                img {
+                    width:178px;
+                    margin-bottom:40px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 27px;
+                    + p {
+                        position:relative;
+                    }
+                }
+            }
         `
     }}
 `
@@ -299,6 +361,17 @@ const Partners = styled.div`
                     li {
                         margin:16px 0 0 16px;
                         width:calc(25% - 16px);
+                        height:52px;
+                    }
+                }
+            }
+            @media screen and ${tablet} {
+                padding:80px 0;
+                ul {
+                    margin:-12px 0 0 -12px;
+                    li {
+                        margin:12px 0 0 12px;
+                        width:calc(50% - 12px);
                         height:52px;
                     }
                 }

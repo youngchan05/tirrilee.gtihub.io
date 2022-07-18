@@ -6,7 +6,7 @@ import useClick from '../../../Hooks/useCurrentTab'
 import ContentBox from './ContentBox'
 import Tab from './Tab'
 function ServieceTab() {
-  const tabs = ['IT 컨설팅','서비스 기획','UX / UI 디자인','프로젝트 개발',]
+  const tabs = [<><span className='hideMo'>IT</span> 컨설팅</>,<><span className='hideMo'>서비스</span> 기획</>,<><span className='hideMo'>UX / UI</span>디자인</>,<><span className='hideMo'>프로젝트</span>개발</>]
   const tabItems = [
     {
       title:'개발 방향성 수립과 아이디어 구체화',
@@ -72,6 +72,7 @@ const Wrapper = styled.div`
     width:100%;
     button {
       width:25%;
+      flex: 1 1 auto;
       padding:13px 0;
       font-size: 20px;
       line-height:34px;
@@ -148,6 +149,31 @@ const TabItem = styled.div`
         }
       }
       @media screen and ${mobile} {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:0;
+        .tabTit {
+          font-size: 24px;
+          line-height:40px;
+        }
+        .tabDesc {
+          white-space: normal;
+        }
+        i {
+          position:static;
+          display: block;
+          margin-bottom:32px;
+          svg {
+            width:120px;
+            height:120px;
+          }
+        }
+        .detailLink {
+          position: static;
+          width:100%;
+          margin-top:32px;
+        }
       }
     `
   }}

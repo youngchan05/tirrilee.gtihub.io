@@ -205,12 +205,39 @@ const List = styled.div`
                     }
                     a {
                         
-                        svg {
-                            margin-left:4px;
-                        }
+                    svg {
+                        margin-left:4px;
                     }
+                }
             }
             @media screen and ${mobile} {
+                .listItem {
+                    border:none;
+                    padding:0;
+                }
+                .linkBox {
+                    .imgBox {
+                        width:96px;
+                        height:72px;
+                    }
+                    + .linkBox {
+                        margin-top:24px;
+                    }
+                }
+                .textBox {
+                    padding-top:3px;
+                    margin-left:16px;
+                    strong{
+                        font-size:18px; 
+                        line-height:27px;
+                        margin-bottom:0;
+                        }
+                    p{
+                        display:none;
+                    }
+                    a {
+                        display:none;
+                }
             }
         `
     }}

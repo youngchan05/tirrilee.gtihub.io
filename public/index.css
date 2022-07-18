@@ -68,7 +68,7 @@ button {
 	border:none;
 	background: none;
 }
-.isTablet {
+.isTablet,.isMobile {
 	display:none;
 }
 :root {
@@ -111,10 +111,23 @@ button {
 	#root {
 		padding:54px 0 231px 0;
 	}
-	.isPc {
+	.isPc,.isMobile {
 		display:none;
 	}
 	.isTablet {
 		display:block;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	#root {
+		padding:54px 0 231px 0;
+	}
+	.isPc {
+		display:none;
+	}
+	.isMobile {
+		display:block;
+	}
+}
+

@@ -2,14 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useLocation } from 'react-router-dom'
-function Gnb({isActive}) {
+import { useEffect } from 'react'
+function Gnb({isActive, onToggleActive}) {
     const locatoin  = useLocation()
     const menu = ['About','Service','Team','Work','Contact','Feed']
     
+    useEffect ( () => {
+        console.log(222)
+        return ( () => {
+            console.log(111)
+        })
+    },[])
   return (
     <Wrapper isActive={isActive} className='gnb'>
         {
-            menu.map( (i, idx) => <li className={locatoin.pathname.search(i.toLowerCase()) > 0 ? 'active' : ''} key={idx}><Link to={`/${i.toLowerCase()}`}>{i}</Link></li>)
+            menu.map( (i, idx) => <li onClick={()=>onToggleActive()} className={locatoin.pathname.search(i.toLowerCase()) > 0 ? 'active' : ''} key={idx}><Link to={`/${i.toLowerCase()}`}>{i}</Link></li>)
         }
     </Wrapper>
   )
@@ -39,8 +46,8 @@ const Wrapper =  styled.ul`
             }
         }
     }
-    ${({theme}) => {
-        const { mobile,tablet,isActive} = theme;
+    ${({theme, isActive}) => {
+        const { mobile,tablet} = theme;
         return css`
             @media screen and ${tablet} {
                 display:${isActive ? 'block':'none'};
@@ -65,6 +72,9 @@ const Wrapper =  styled.ul`
                         border-color:transparent;
                     }
                 }
+            }
+            @media screen and ${mobile} {
+                padding:60px 30px;
             }
         `
     }}

@@ -1,22 +1,25 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { IconMenu, Logo } from '../../../common/svg'
+import { IconMenu, Logo, IconMenuClose } from '../../../common/svg'
 import { Link } from 'react-router-dom'
 import Gnb from './Gnb'
 import { useState } from 'react'
 
 function Hedaer() {
   const [ isActive , setIsActive] = useState(false);
+  const onToggleActive =  () => setIsActive(false)
   return (
     <Wrapper isActive={isActive}>
         <Inner>
             <button onClick={()=> setIsActive(!isActive)} type="button" className='isTablet'>
-              <IconMenu/>
+              {
+                isActive ? <IconMenuClose/> : <IconMenu/>
+              }
             </button>
             <h1>
               <Link to="/"><Logo/></Link>
             </h1>
-            <Gnb isActive={isActive}/>
+            <Gnb onToggleActive={onToggleActive} isActive={isActive}/>
         </Inner>
     </Wrapper>
   )
@@ -66,6 +69,6 @@ const tabletStyle =  css`
 `
 
 const mobileStyle =  css`
-
+  padding:0 20px;
 `
 export default Hedaer

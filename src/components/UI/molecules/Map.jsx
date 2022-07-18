@@ -91,6 +91,16 @@ const Wrapper = styled.div`
                 }
             }
             @media screen and ${mobile} {
+                .map {
+                    height:280px;
+                }
+                .linkBox {
+                    a {
+                        + a {
+                            margin:16px 0 0 0;
+                        }
+                    }
+                }
             }
         `
     }}

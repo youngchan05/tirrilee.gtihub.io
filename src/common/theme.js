@@ -1,6 +1,6 @@
 
 const size = {
-    mobile: '415px',
+    mobile: '720px',
     tablet: '1020px',
   }
   const button = {

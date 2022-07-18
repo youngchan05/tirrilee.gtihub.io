@@ -18,7 +18,7 @@ function Team() {
         <Title>
         <strong> We are just a <span>Team.<br className='isTablet' /></span> Not a part.</strong>
           <p>티릴리는 모든 프로젝트의 클라이언트와 한 팀이 되어 일하는 것을 추구합니다.<br/>
-          프로젝트 완료가 목적이 아닌, 성장 가능성 있는 프로젝트로 만들기 위해 함께 고민합니다.</p>
+          <span>프로젝트 완료가 목적이 아닌, 성장 가능성 있는 프로젝트로 만들기 위해 함께 고민합니다.</span></p>
         </Title>
       </ContentBox>
       <TeamVision>
@@ -89,6 +89,9 @@ const Title = styled.div`
       font-size: 20px;
       line-height: 1.7;
       color: var(--gray-scale-gray-9);
+      span {
+        color: inherit;
+      }
   }
   ${({theme}) => {
     const { mobile,tablet} = theme;
@@ -102,6 +105,12 @@ const Title = styled.div`
         }
         }
         @media screen and ${mobile} {
+          padding:60px 0 32px 0;
+          p {
+            span {
+              display:none;
+            }
+          }
         }
     `
   }}
@@ -152,6 +161,15 @@ const TeamVision = styled.div`
           }
         }
         @media screen and ${mobile} {
+          overflow:auto;
+          .visionText {
+            width: auto;
+            min-width:180px;
+            flex: 0 0 auto;
+            + .visionText {
+              margin-left:12px;
+            }
+          }
         }
     `
   }}
@@ -172,6 +190,7 @@ const MemberList = styled.div`
           }
         }
         @media screen and ${mobile} {
+          padding:60px 0;
         }
     `
   }}

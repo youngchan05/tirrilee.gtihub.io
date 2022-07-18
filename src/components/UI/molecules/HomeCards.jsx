@@ -105,6 +105,12 @@ const Wrapper = styled.ul`
           }
         }
         @media screen and ${mobile} {
+          margin-top:-20px;
+          li {
+            + li {
+              margin-top:12px;
+            }
+          }
         }
     `
 }}

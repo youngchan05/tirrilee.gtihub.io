@@ -20,7 +20,8 @@ const Wrapper = styled.div`
       return css`
           @media screen and ${tablet} {
             font-size: 32px;
-            line-height: 48px;          }
+            line-height: 48px;          
+          }
       `
   }}
 `

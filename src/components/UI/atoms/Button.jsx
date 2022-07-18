@@ -42,5 +42,13 @@ const Wrapper = styled.button`
       }
     }}
   }
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${mobile} {
+          width:100%;
+        }
+    `
+  }}
 `
 export default Button

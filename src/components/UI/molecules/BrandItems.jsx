@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconMinssum, IconStauter } from '../../../common/svg'
 import ContentBox from './ContentBox'
 
@@ -32,6 +32,14 @@ function BranItems() {
 
 const Wrapper = styled.div`
   display:flex;
+  ${({theme}) => {
+    const { mobile,tablet} = theme;
+    return css`
+        @media screen and ${mobile} {
+          flex-wrap:wrap;
+        }
+    `
+}}
 `
 const Item = styled.div`
   width:50%;
@@ -63,6 +71,16 @@ const Item = styled.div`
   + .branItemBox {
     margin-left:20px;
   }
-
+  ${({theme}) => {
+      const { mobile,tablet} = theme;
+      return css`
+          @media screen and ${mobile} {
+            width:100%;
+            + .branItemBox {
+              margin:16px 0 0 0;
+            }
+          }
+      `
+  }}
 `
 export default BranItems

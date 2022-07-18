@@ -20,6 +20,7 @@ const Wrapper = styled.div`
                 padding: 0 30px;
             }
             @media screen and ${mobile} {
+                padding: 0 20px;
             }
         `
     }}

@@ -92,6 +92,12 @@ const Wrapper = styled.div`
                 margin:16px 0 0 16px;
             }
             @media screen and ${mobile} {
+                width:calc(100%);
+                margin:0;
+                + div {
+                    margin-top:20px;
+                }
+                
             }
         `
     }}

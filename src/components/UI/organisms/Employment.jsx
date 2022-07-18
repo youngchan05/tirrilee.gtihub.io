@@ -112,6 +112,18 @@ const Wrapper = styled.div`
                 }
             }
             @media screen and ${mobile} {
+                padding:60px 0 ;
+                .tabCont {
+                    dl {
+                        dt {
+                            font-size:20px;
+                            line-height:30px;
+                        }
+                        dd {
+                            
+                        }
+                    }
+                }
             }
         `
     }}

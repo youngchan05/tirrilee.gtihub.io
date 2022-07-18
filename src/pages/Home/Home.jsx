@@ -20,7 +20,7 @@ function Home() {
           <strong className='title'>Lanch<br className='isTablet'/> Your Idea to Service</strong>
           <p className='desc'>
             티릴리와 함께 아이디어를 서비스로 만들어보세요.<br/>
-            IT 컨설팅부터 시작하여 개발 단계까지 통합 개발 에이전시 그룹입니다.
+            IT 컨설팅부터 시작하여 개발 단계까지<br className='isMobile'/> 통합 개발 에이전시 그룹입니다.
           </p>
         </SectionText>
       </div>
@@ -30,7 +30,7 @@ function Home() {
           <strong className='title'>Tirrilee Brand</strong>
           <p className='desc'>
           티릴리가 자체적으로 운영하는 서비스입니다.<br/>
-          고객의 소리를 듣고 시장에 필요한 서비스를 만들어 지속적인 가치를 창출합니다. 
+          고객의 소리를 듣고 시장에 필요한 서비스를 만들어<br className='isMobile'/> 지속적인 가치를 창출합니다. 
           </p>
         </SectionText>
         <BrandItems/>
@@ -96,10 +96,10 @@ const tabletStyle =  css`
     padding-bottom:100px;
   }
   .TextBanner {
-    padding:48px 0;
+    padding:40px 0;
   }
   .branSection {
-    padding:100px 0;
+    padding:80px 0;
     .sectionTitle {
       margin-bottom:32px;
     }
@@ -112,12 +112,25 @@ const tabletStyle =  css`
   }
   .feedSection {
     padding:80px 0;
-    background-color: var(--gray-scale-gray-1);
   }
   
 `
 
 const mobileStyle =  css`
-
+  .cradSection {
+    padding-bottom:80px;
+  }
+  .TextBanner {
+    padding:48px 0;
+  }
+  .branSection {
+    padding:100px 0;
+  }
+  .serviceSection {
+    padding-bottom:80px;
+  }
+  .feedSection {
+    padding:60px 0;
+  }
 `
 export default Home

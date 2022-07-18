@@ -18,6 +18,9 @@ const Wrapper = styled.div`
           @media screen and ${tablet} {
             ${tabletStyle}
           }
+          @media screen and ${mobile} {
+            padding:0 20px;
+          }
       `
     }}
 `

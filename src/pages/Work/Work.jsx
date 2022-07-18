@@ -102,6 +102,7 @@ const Wrapper = styled.div`
                 }
             }
             @media screen and ${mobile} {
+                padding:60px 0 80px 0;
             }
         `
     }}
