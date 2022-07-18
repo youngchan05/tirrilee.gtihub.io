@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useLocation } from 'react-router-dom'
-function Gnb() {
+function Gnb({isActive}) {
     const locatoin  = useLocation()
     const menu = ['About','Service','Team','Work','Contact','Feed']
     
   return (
-    <Wrapper className='gnb'>
+    <Wrapper isActive={isActive} className='gnb'>
         {
             menu.map( (i, idx) => <li className={locatoin.pathname.search(i.toLowerCase()) > 0 ? 'active' : ''} key={idx}><Link to={`/${i.toLowerCase()}`}>{i}</Link></li>)
         }
@@ -40,10 +40,31 @@ const Wrapper =  styled.ul`
         }
     }
     ${({theme}) => {
-        const { mobile,tablet} = theme;
+        const { mobile,tablet,isActive} = theme;
         return css`
             @media screen and ${tablet} {
-            display:none;
+                display:${isActive ? 'block':'none'};
+                position:fixed;
+                left:0;
+                top:54px;
+                background: #fff;
+                width:100%;
+                height:100vh;
+                padding:80px 30px;
+                li  {
+                    padding:0;
+                    a {
+                        font-size:24px;
+                        line-height:40px;
+                    }
+                    + li {
+                        margin-left:0;
+                        margin-top:40px;
+                    }
+                    &.active {
+                        border-color:transparent;
+                    }
+                }
             }
         `
     }}

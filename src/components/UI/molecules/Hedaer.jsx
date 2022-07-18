@@ -3,18 +3,20 @@ import styled, { css } from 'styled-components'
 import { IconMenu, Logo } from '../../../common/svg'
 import { Link } from 'react-router-dom'
 import Gnb from './Gnb'
+import { useState } from 'react'
 
 function Hedaer() {
+  const [ isActive , setIsActive] = useState(false);
   return (
-    <Wrapper>
+    <Wrapper isActive={isActive}>
         <Inner>
-            <button type="button" className='isTablet'>
+            <button onClick={()=> setIsActive(!isActive)} type="button" className='isTablet'>
               <IconMenu/>
             </button>
             <h1>
               <Link to="/"><Logo/></Link>
             </h1>
-            <Gnb/>
+            <Gnb isActive={isActive}/>
         </Inner>
     </Wrapper>
   )
@@ -26,6 +28,7 @@ const Wrapper = styled.div`
     top:0;
     width:100%;
     background-color: rgba(255, 255, 255, 0.8);
+    .
 `
 
 const Inner = styled.div`
