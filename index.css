@@ -68,6 +68,9 @@ button {
 	border:none;
 	background: none;
 }
+.isTablet,.isMobile {
+	display:none;
+}
 :root {
 	--primary-primary: #226bef;
 	--primary-p-800: #4e88f2;
@@ -103,3 +106,28 @@ button {
 	--system-color-success: #2fb916;
 	--system-color-alert: #ff2f2f;
 }
+
+@media screen and (max-width: 1020px) {
+	#root {
+		padding:54px 0 231px 0;
+	}
+	.isPc,.isMobile {
+		display:none;
+	}
+	.isTablet {
+		display:block;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#root {
+		padding:54px 0 231px 0;
+	}
+	.isPc {
+		display:none;
+	}
+	.isMobile {
+		display:block;
+	}
+}
+
