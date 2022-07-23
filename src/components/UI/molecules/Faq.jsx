@@ -80,8 +80,11 @@ const Wrapper = styled.div`
     ${({theme}) => {
         const { mobile,tablet} = theme;
         return css`
-            @media screen and ${tablet} {
-
+            @media screen and ${mobile} {
+                .aksTit {
+                    font-size: 18px;
+                    line-height:30px;
+                }
             }
         `
     }}

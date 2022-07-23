@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import Button from '../../components/UI/atoms/Button'
 import Title from '../../components/UI/atoms/Title'
 import ContentBox from '../../components/UI/molecules/ContentBox'
 import DetailView from '../../components/UI/organisms/DetailView'
@@ -35,14 +36,15 @@ function FeedDetail() {
                 <div className="imgBox">
                     <img src="/images/Home_Banner_1@2x.png" alt="" />
                 </div>
-                <button type="button">맨 위로</button>
             </FeedViewBox>
+            <Button className="btn" onClick={ ()=> window.scrollTo(0, 0)} buttonTheme={'sub'}>맨 위로</Button>
         </ContentBox>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
+    padding-bottom:80px;
     .feedInfo {
         padding-bottom:48px;
         border-bottom:1px solid var(--gray-scale-gray-3);
@@ -78,6 +80,10 @@ const Wrapper = styled.div`
             }
         }
     }
+    .btn {
+        display:block;
+        margin:0 auto 48px auto;
+    }
 `
 
 const FeedImg = styled.div`
@@ -89,13 +95,35 @@ const FeedImg = styled.div`
         width:100%;
         height:100%;
     }
-    
+    ${({theme}) => {
+        const { mobile} = theme;
+        return css`
+            @media screen and ${mobile} {
+                height:240px;
+            }
+        `
+    }}
 `
 const FeedViewBox = styled.div`
     padding: 48px 0 80px 0;
     img {
         width:100%;
     }
+    p {
+        font-size:18px;
+        line-height:30px;
+    }
+    ${({theme}) => {
+        const { mobile} = theme;
+        return css`
+            @media screen and ${mobile} {
+                p {
+                    font-size:16px;
+                    line-height:27px;
+                }
+            }
+        `
+    }}
 `
 
 export default FeedDetail

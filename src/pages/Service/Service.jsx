@@ -13,6 +13,8 @@ function Service() {
             title:'IT 컨설팅',
             desc:`막막한 기획서 작성 ! 아이디어만 있어도 괜찮아요.
             전문가와 함께 준비중인 서비스 IT 컨설팅을 받아보세요!`,
+            mobileDesc:`아이디어만 있어도
+            괜찮아요.`,
             link:'consulting',
             icon:<IconServieTab01/>,
         },
@@ -20,6 +22,8 @@ function Service() {
             title:'서비스 기획',
             desc:`프로젝트 규모 산정이 완료되었다면?
             메뉴구조도를 바탕으로 상세기획 및 와이어프레임을 작업합니다.`,
+            mobileDesc:`프로젝트 구상안
+            준비가 끝났다면?`,
             link:'servicePlanning',
             icon:<IconServieTab02/>
         },
@@ -27,6 +31,8 @@ function Service() {
             title:'UX/UI  디자인',
             desc:`서비스 기획 과정이 끝났다면?
             와이어프레임에 UX를 고려하여 GUI를 진행하고 Sytle Guide를 제작합니다.`,
+            mobileDesc:`서비스 기획을
+            바탕으로 페이지 구성`,
             link:'design',
             icon:<IconServieTab03/>
         },
@@ -34,6 +40,8 @@ function Service() {
             title:'프로젝트 개발',
             desc:`완료된 기획서 및 디자인을 바탕으로 프로젝트를 개발합니다.
             퍼블리싱,  DB설계, 서버세팅, API개발 및 연동, 배포 모든 개발과정을 포함합니다.`,
+            mobileDesc:`설계부터 배포까지
+            모든 개발과정 포함`,
             link:'development',
             icon:<IconServieTab04/>
         }
@@ -46,12 +54,13 @@ function Service() {
         <ServiceItem>
             {
                 tabItems.map((i ,index) => {
-                    const { title, desc, link, icon} = i;
+                    const { title, desc, link, icon, mobileDesc} = i;
                     return (
                     <Item key={index} onClick={ ()=> navigate(`/service/${link}`)}>
                         <i>{icon}</i>
                         <strong className='tabTit'>{title}</strong>
                         <p className='tabDesc'>{desc}</p>
+                        <p className='tabDesc isMobile'>{mobileDesc}</p>
                     </Item>
                     )
                 })
@@ -97,6 +106,9 @@ const ServiceItem = styled.div`
         return css`
             @media screen and ${tablet} {
                 margin:-16px 0 120px -16px;
+            }
+            @media screen and ${mobile} {
+                margin:-12px 0 80px -12px;
             }
         `
     }}
@@ -145,11 +157,28 @@ const Item = styled.div`
         return css`
             @media screen and ${tablet} {
                 width: calc(50% - 16px);
+                align-items: center;
                 padding: 28px;
                 margin:16px 0 0 16px;
-                border-radius: 8px;
-                border: solid 1px var(--gray-scale-gray-3);
-                background-color: var(--gray-scale-white);
+                .isMobile {
+                    display:none;
+                }
+            }
+            @media screen and ${mobile} {
+                width: calc(50% - 12px);
+                padding 20px 0;
+                margin:12px 0 0 12px;
+                .tabDesc {
+                    display:none;
+                    &.isMobile {
+                        display:block;
+                        text-align: center;
+                    }
+                }
+                strong {
+                    font-size: 20px;
+                    line-height:30px;
+                }
             }
         `
     }}

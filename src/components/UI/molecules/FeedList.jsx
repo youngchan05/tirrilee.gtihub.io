@@ -75,7 +75,6 @@ function FeedList() {
                     )
                 })
             }
-            <Button size={'xl'} buttonTheme={'line'} className={'feedLinkBox'}>더 보기</Button>
         </List>
     </Wrapper>
 
@@ -172,11 +171,7 @@ const List = styled.div`
             }
         }
     }
-    .feedLinkBox {
-        display:block;
-        padding:17px 0;
-        margin:48px auto 0 auto;
-    }
+    
     ${({theme}) => {
         const { mobile,tablet} = theme;
         return css`

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 function DetailView({children}) {
   return (
@@ -43,5 +43,27 @@ const Wrapper = styled.div`
             margin-top:20px;
         }
     }
+    ${({theme}) => {
+        const { mobile,tablet, contents} = theme;
+        return css`
+            @media screen and ${mobile} {
+                padding-bottom:32px;
+                .contentTit {
+                    margin-bottom:24px;
+                    font-size:24px;
+                    line-height:40px;
+                }
+                dl {
+                    display:flex;
+                    dt{
+                        width:78px;
+                        margin-right:20px;
+                        font-size: 18px;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        `
+    }}
 `
 export default DetailView

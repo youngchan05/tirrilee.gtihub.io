@@ -45,8 +45,13 @@ const Wrapper = styled.div`
     color:${proos.textColor};
   `}
     ${({theme}) => {
-      const { mobile,tablet} = theme;
+      const { mobile,tablet, contents} = theme;
       return css`
+        @media screen and ${contents} {
+          .contentBox {
+            padding:46px 20px;
+          }
+        }
           @media screen and ${tablet} {
             .contentBox {
               position:relative;
@@ -67,6 +72,17 @@ const Wrapper = styled.div`
               .tit {
                 font-size: 32px;
                 line-height: 48px;
+              }
+            }
+          }
+          @media screen and ${mobile} {
+            .contentBox {
+              .serviceIcon {
+                right:20px;
+                top:40px;
+                svg {
+                  width:100px;
+                }
               }
             }
           }

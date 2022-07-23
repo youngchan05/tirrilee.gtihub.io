@@ -88,6 +88,18 @@ const Wrapper = styled.div`
               }
             }
         }
+        @media screen and ${tablet} {
+          padding-bottom:80px;
+          .checkListWrapper {
+            display:flex;
+            .checkListBox {
+              flex:0 0 308px;
+              + .checkListBox {
+                margin-left:12px;
+              }
+            }
+          }
+      }
     `
 }}
 `

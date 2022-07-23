@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import TextTag from '../atoms/TextTag';
 
 function Price({item}) {
@@ -65,6 +65,38 @@ const Wrapper = styled.div`
     + .priceItem {
         margin-top:24px;
     }
+    ${({theme}) => {
+        const { mobile} = theme;
+        return css`
+            @media screen and ${mobile} {
+                i {
+                    width: 60px;
+                    height: 60px;
+                    margin-right:12px;
+                }
+                .box {
+                    .inner {
+                        .tit {
+                            display:flex;
+                            margin-bottom:0;
+                            font-size: 18px;
+                            line-height: 27px;
+                            div {
+                                margin-left:12px;
+                            }
+                        }
+                        .item {
+                            display:none;
+                        }
+                    }
+                    .pay {
+                        font-size: 18px;
+                        line-height: 27px;
+                    }
+                }
+            }
+        `
+    }}
 
 `
 export default Price

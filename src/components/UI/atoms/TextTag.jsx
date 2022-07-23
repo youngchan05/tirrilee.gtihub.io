@@ -16,7 +16,6 @@ const Wrapper = styled.div`
     line-height: 1.5;
     text-align: center;
     ${props => {
-      console.log(props.type)
       const textTypeColor = {
         MVP:'var(--mvp);',
         product:'var(--product);',

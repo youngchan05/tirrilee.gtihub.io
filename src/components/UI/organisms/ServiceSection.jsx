@@ -34,8 +34,24 @@ const Wrapper = styled.div`
     ${({theme}) => {
         const { mobile,tablet} = theme;
         return css`
-            @media screen and ${tablet} {
-                
+            @media screen and ${mobile} {
+                margin-bottom:60px;
+                .tit {
+                    font-size: 28px;
+                    line-height: 42px;
+                    + div {
+                        margin-top:28px;
+                    }
+                }
+                .subTit{
+                    margin-top:8px;
+                    +.checkListBox {
+                        margin-top:28px;
+                    }
+                    + div {
+                        margin-top:28px;
+                    }
+                }
             }
         `
     }}

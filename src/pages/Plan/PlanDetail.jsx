@@ -81,8 +81,11 @@ const Wrapper = styled.div`
   ${({theme}) => {
     const { mobile,tablet} = theme;
     return css`
-        @media screen and ${tablet} {
-            
+        @media screen and ${mobile} {
+          padding-bottom:80px;
+          .btnAsk {
+            margin-bottom:80px;
+          }
         }
     `
   }}

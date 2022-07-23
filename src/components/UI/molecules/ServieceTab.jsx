@@ -12,28 +12,28 @@ function ServieceTab() {
       title:'개발 방향성 수립과 아이디어 구체화',
       desc:`아이디어 단계인 고객, 처음 IT 사업을 시작하는 분들에게 꼭 필요한 과정입니다.
       개발 방향성을 함께 수립하고 고객의 상황에 맞게 프로젝트 규모를 함께 산정합니다.`,
-      link:'',
+      link:'/service/consulting',
       icon:<IconServieTab01/>,
     },
     {
       title:'프로젝트 상세기획 및 구조설계',
       desc:`아이디어 단계를 마치고 프로젝트 규모가 산정된 분들과 진행하는 과정입니다.
       프로젝트의 메뉴구조도를 바탕으로 상세기획 및 와이어프레임작업을 진행합니다.`,
-      link:'',
+      link:'/service/servicePlanning',
       icon:<IconServieTab02/>
     },
     {
       title:'프로젝트 디자인 및 개발 가이드 전달',
       desc:`User의 사용성과 편의를 고려하여 GUI 작업을 완성합니다.  
       개발작업을 효율적으로 진행할 수 있도록 Style Guide 및 기초 Icon들을 제작합니다.`,
-      link:'',
+      link:'/service/design',
       icon:<IconServieTab03/>
     },
     {
       title:'프로젝트 개발 및 배포',
       desc:`완성된 기획서 및 디자인을 바탕으로 DB설계와 컴포넌트를 제작합니다.
       DB설계, 서버세팅, 퍼블리싱, API개발 및 연동, 배포 모든 개발과정을 포함합니다.`,
-      link:'',
+      link:'/service/development',
       icon:<IconServieTab04/>
     }
   ]

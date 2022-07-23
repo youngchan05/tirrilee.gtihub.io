@@ -723,6 +723,13 @@ export const IconAws = () => {
 }
 
 
+export const IconBack = () => {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.515 18.741a.693.693 0 0 1-.5-.219L2.37 12.485a.691.691 0 0 1 0-.939l5.638-6.085a.69.69 0 0 1 1.012.937l-4.56 4.92h16.644a.689.689 0 1 1 0 1.378H4.455l4.564 4.89a.688.688 0 0 1-.5 1.158l-.004-.003z" fill="#226BEF"/>
+        </svg>
+    )
+}
 export const IconMenu = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

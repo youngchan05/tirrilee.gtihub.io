@@ -2,6 +2,7 @@
 const size = {
     mobile: '720px',
     tablet: '1020px',
+    contents:'1200px',
   }
   const button = {
     size:{
@@ -48,6 +49,7 @@ const size = {
     button,
     mobile: `(max-width: ${size.mobile})`,
     tablet: `(max-width: ${size.tablet})`,
+    contents: `(max-width: ${size.contents})`,
   }
 
 

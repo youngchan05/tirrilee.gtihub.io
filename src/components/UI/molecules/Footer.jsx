@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { IconBehance, IconInstagram, IconNotion, IconTistory, IconYoutube } from '../../../common/svg'
+import ContentBox from './ContentBox'
 
 function Footer() {
   const links = [
@@ -24,7 +25,7 @@ function Footer() {
   }
   return (
     <Wrapper>
-      <Inner>
+      <ContentBox>
         <div className="linkBox">
           {
             links.map( (i, idx) => 
@@ -41,25 +42,32 @@ function Footer() {
             <dt>대표</dt>
             <dd>이민재</dd>
           </dl>
-          <dl>
-            <dt>사업자 번호</dt>
-            <dd>155-88-01025</dd>
-            <dt>Contact</dt>
-            <dd>tirrilee00@gmail.com</dd>
-          </dl>
+          <div className='info'>
+            <dl>
+              <dt>사업자 번호</dt>
+              <dd>155-88-01025</dd>
+            </dl>
+            <dl>
+              <dt>Contact</dt>
+              <dd>tirrilee00@gmail.com</dd>
+            </dl>
+          </div>
           <dl>
             <dt>주소</dt>
             <dd>서울 마포구 동교로 156-12 코이멕스빌딩 2층 티릴리</dd>
           </dl>
         </div>
-      </Inner>
+      </ContentBox>
     </Wrapper>
   )
 }
-const Inner = styled.div`
+const Wrapper = styled.div`
+  position:absolute;
+  left:0;
+  bottom:0;
   width:100%;
-  max-width:1156px;
-  margin:0 auto;
+  padding:40px 0;
+  border-top:1px solid var(--gray-scale-gray-3);
   .linkBox {
     display:flex;
     margin-bottom:36px;
@@ -77,6 +85,18 @@ const Inner = styled.div`
     }
   }
   .company {
+    .info {
+      display:flex;
+      margin:14px 0;
+      dl {
+        margin-top:0;
+        + dl {
+          padding-left:12px;
+          margin-left:12px;
+          border-left:1px solid var(--gray-scale-gray-6);
+        }
+      }
+    }
     dl {
       display:flex;
       dt {
@@ -101,19 +121,33 @@ const Inner = styled.div`
       }
     }
   }
-`
-const Wrapper = styled.div`
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  padding:40px 0;
-  border-top:1px solid var(--gray-scale-gray-3);
   ${({theme}) => {
     const { mobile,tablet} = theme;
     return css`
         @media screen and ${tablet} {
           padding:40px 30px;
+          .contentBox {
+            padding:0;
+          }
+        }
+        @media screen and ${mobile} {
+          padding:40px 20px;
+          .company {
+            .info {
+              display: block;
+              dl {
+                + dl {
+                  margin:12px 0 0 0 ;
+                  margin-left:0;
+                  padding-left:0;
+                  border:none;
+                }
+              }
+            }
+          }
+          .contentBox {
+            padding:0;
+          }
         }
     `
 }}

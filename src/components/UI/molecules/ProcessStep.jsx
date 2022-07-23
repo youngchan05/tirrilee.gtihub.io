@@ -76,6 +76,17 @@ const Wrapper = styled.div`
                     }
                 }
             }
+            @media screen and ${mobile} {
+                ul {
+                    flex-wrap:wrap;
+                    margin:-12px 0 0 -12px;
+                    li {
+                        flex: auto;
+                        width:calc(50% - 16px);
+                        margin:12px 0 0 12px;
+                    }
+                }
+            }
         `
     }}
 `

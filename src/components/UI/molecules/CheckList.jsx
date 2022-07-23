@@ -64,7 +64,12 @@ const Wrapper = styled.div`
         const { mobile,tablet} = theme;
         return css`
             @media screen and ${tablet} {
-
+                padding: 28px;
+                .boxTop  {
+                    .checkListTit {
+                        font-size:16px;
+                    }
+                }
             }
         `
     }}

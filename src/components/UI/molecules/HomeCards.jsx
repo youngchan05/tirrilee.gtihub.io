@@ -9,7 +9,7 @@ function HomeCards() {
     {
       icon:<IconUsers/>,
       title:'IT Consulting',
-      url:'/service',
+      url:'/service/consulting',
       sub:'함께 아이디어를 구체화하는 과정입니다.',
     },
     {
@@ -21,7 +21,7 @@ function HomeCards() {
     {
       icon:<IconSlash/>,
       title:'Development',
-      url:'/service',
+      url:'/service/development',
       sub:'설계된 프로젝트를 개발하는 과정입니다.',
     },
   ]

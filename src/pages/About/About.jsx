@@ -48,6 +48,18 @@ function About() {
         <div className="bnnaerImg">
             <img src="./images/img_aboutBanner.png" alt=""  className='isPc'/>
             <img src="./images/img_aboutBannerT.png" alt="" className='isTablet'/>
+            <div className='isTablet textBox'>
+                <dl>
+                    <dt>Who we are</dt>
+                    <dd>티릴리는 고객과 시장에<br className='isMobile'/> 꼭 필요한 프로젝트를 개발합니다.</dd>
+                </dl>
+                <dl>
+                    <dt>How we solve</dt>
+                    <dd>그렇기에,<br className='hideMobile'/>
+                    티릴리는 <br className='isMobile'/>단순히 개발을 수행하는 에이전시가 아닌<br/>
+                    고객의 사업을 초기 단계부터<br className='isMobile'/> 함께 그려나가는 것을 목표로 합니다.</dd>
+                </dl>
+            </div>
         </div>
         <OurValue>
             <SectionText>
@@ -106,6 +118,7 @@ const Wrapper = styled.div`
         img {
             width:100%;
         }
+        
     }
     .sectionTitle {
         .title {
@@ -125,6 +138,78 @@ const Wrapper = styled.div`
             @media screen and ${tablet} {
                 .hideMobile {
                     display:none;
+                }
+                .bnnaerImg {
+                    position:relative;
+                    img {
+                        position:relative;
+                        width:1020px;
+                        left:50%;
+                        transform: translateX(-50%);
+                    }
+                    .textBox {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        position:absolute;
+                        left:0;
+                        top:0;
+                        width:100%;
+                        height:100%;
+                        padding:0 94px;
+                        z-index:10;
+                        dl{
+                            dt{
+                                font-size: 32px;
+                                font-weight: bold;
+                                line-height: 1.5;
+                                text-align: left;
+                                color: var(--gray-scale-white);
+                            }
+                            dd{
+                                margin-top:16px;
+                                font-size: 16px;
+                                line-height: 1.7;
+                                text-align: left;
+                                color: var(--gray-scale-white);
+                                white-space: pre-line;
+                        }
+                        + dl {
+                            position:relative;
+                            border-top:1px solid var(--gray-scale-white);
+                            margin-top:60px;
+                            padding-top:60px;
+                            &::after {
+                                display:block;
+                                position:absolute;
+                                right:0;
+                                top:-4px;
+                                width:4px;
+                                height:4px;
+                                border-right:1px solid #fff;
+                                border-top:1px solid #fff;
+                                content:"";
+                                transform: rotate(45deg);
+                            }
+                            dt,dd {
+                                text-align:right;
+                            }
+                        }
+                    }
+                }
+            }
+            @media screen and ${mobile} {
+                .bnnaerImg{
+                    img {
+                        width: 820px;
+                    }
+                    .textBox {
+                        .hideMobile {
+                            display:none;
+                        }
+                        padding:0;
+                        align-items: center;
+                    }
                 }
             }
         `

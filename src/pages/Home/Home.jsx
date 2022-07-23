@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import Button from '../../components/UI/atoms/Button'
 import BrandItems from '../../components/UI/molecules/BrandItems'
 import ContentBox from '../../components/UI/molecules/ContentBox'
 import FeedList from '../../components/UI/molecules/FeedList'
@@ -49,6 +51,9 @@ function Home() {
         </SectionText>
         <ContentBox>
           <FeedList/>
+          <Button size={'xl'} buttonTheme={'line'} className={'feedLinkBox'}>
+              <Link to="/feed">더 보기</Link>
+          </Button>
         </ContentBox>
       </div>
     </Wrapper>
@@ -77,6 +82,17 @@ const Wrapper = styled.div`
   .feedSection {
     padding:120px 0;
     background-color: var(--gray-scale-gray-1);
+    .feedLinkBox {
+      display:block;
+      padding:17px 0;
+      margin:48px auto 0 auto;
+      a {
+          font-size: inherit;
+          color: inherit;
+          font-weight: inherit;
+          line-height: inherit;
+      }
+  }
   }
   ${({theme}) => {
     const { mobile,tablet} = theme;

@@ -1,26 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { IconMinssum, IconStauter } from '../../../common/svg'
 import ContentBox from './ContentBox'
 
 function BranItems() {
   const items = [
-    {title:'민썸스쿨',sub:'창업 및 IT 기초 교육 서비스',icon:<IconMinssum/>,color:' var(--minssum)'},
-    {title:'Stauter',sub:'IT 간편 견적 서비스',icon:<IconStauter/>,color:' var(--stauter)'},
+    {title:'민썸스쿨',sub:'창업 및 IT 기초 교육 서비스',icon:<IconMinssum/>,color:' var(--minssum)',link:'https://minssum.poincampus.com/'},
+    {title:'Stauter',sub:'IT 간편 견적 서비스',icon:<IconStauter/>,color:' var(--stauter)', link:'https://www.stauter.co.kr/'},
   ]
   return (
     <ContentBox>
       <Wrapper>
           {
             items.map((i, idx) => {
-              const { title, sub, icon,color} = i;
+              const { title, sub, icon,color,link} = i;
               return (
                 <Item key={idx} itemColor={color} className='branItemBox'>
-                  <i className='itemIcon'>{icon}</i>
-                  <p className='brandText'>
-                    <span>{sub}</span><br/>
-                    <strong>{title}</strong>
-                  </p>
+                  <a href={link} target='_blank'>
+                    <i className='itemIcon'>{icon}</i>
+                    <p className='brandText'>
+                      <span>{sub}</span><br/>
+                      <strong>{title}</strong>
+                    </p>
+                  </a>
                 </Item>
               )
             })

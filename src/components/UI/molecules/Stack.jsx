@@ -83,6 +83,21 @@ const Wrapper = styled.div`
                     }
                 }
             }
+            @media screen and ${mobile} {
+                ul {
+                    margin:0;
+                    li {
+                        width: 100%;
+                        margin:0;
+                        i {
+                            margin-right:20px;
+                        }
+                        + li {
+                            margin-top:16px;
+                        }
+                    }
+                }
+            }
         `
     }}
 `
