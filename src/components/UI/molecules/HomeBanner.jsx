@@ -5,7 +5,7 @@ function HomeBanner({img, bgColor}) {
   return (
     <Wrapper bgColor={bgColor}>
         <Banner>
-            <img src={`/images/${img}.png`} alt="" />
+            <img src={`./images/${img}.png`} alt="" />
         </Banner>
     </Wrapper>
   )
